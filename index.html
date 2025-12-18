@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación de prueba de calidad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card { position: relative; border-radius: 1.5rem; }
+    .hidden {
+  display: none !important;
+}
+    .emoji { font-size: 3rem; }
+  </style>
+</head>
+<body>
+
+<div class="card bg-dark text-light p-4" style="max-width:520px;width:100%;">
+  <div class="card-body text-center">
+
+    <!-- BLOQUE INICIAL -->
+    <div id="intro">
+
+      <div class="emoji mb-2">🛏️✨</div>
+      <h2 class="card-title mb-3">Invitación oficial para la Srta.: Paula Garcia</h2>
+
+      <p class="card-text mb-4">
+        He adquirido un <strong>sommier nuevo</strong> de altísima tecnología 😌<br>
+        y necesito ayuda profesional para <em>hacer la prueba de control de calidad del pruducto</em>.
+      </p>
+
+      <p class="fw-semibold">¿Aceptás la invitación?</p>
+
+      <div class="d-flex justify-content-center gap-3 mb-4" id="buttons">
+        <button id="btnSi" class="btn btn-success btn-lg">Sí, obvio 😏</button>
+        <button id="btnNo" class="btn btn-outline-danger btn-lg">No 😐</button>
+      </div>
+
+    </div>
+
+    <!-- FORMULARIO -->
+    <form id="form" class="hidden text-start">
+
+      <hr class="border-light">
+      <h5 class="text-center mb-3">Perfecto, necesitamos algunos detalles 😌</h5>
+
+      <div class="mb-3">
+        <label class="form-label">📅 ¿Qué día te gustaría?</label>
+        <input type="date" id="fecha" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">🎬 ¿Querés ver una peli?</label>
+        <select id="verPeli" class="form-select">
+          <option value="no">No</option>
+          <option value="si">Sí</option>
+        </select>
+      </div>
+
+      <div class="mb-3 hidden" id="peliNombre">
+        <label class="form-label">🍿 ¿Cuál peli?</label>
+        <input type="text" id="nombrePeli" class="form-control"
+               placeholder="Se aceptan sugerencias😜">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Desea tomar algo?🥂</label>
+        <select id="bebida" class="form-select">
+          <option>Vino</option>
+          <option>Agua (mentira)</option>
+          <option>Cerveza</option>
+          <option>Lo que haya</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">🛏️ Nivel de prueba del sommier</label>
+        <select id="nivelSommier" class="form-select">
+          <option>Solo sentarse, soy respetuosa</option>
+          <option>Acostarse un ratito</option>
+          <option>Prueba científica intensiva 🔥</option>
+        </select>
+      </div>
+
+      <hr class="border-light">
+      <h6 class="text-center mb-3">Confirmaciones importantes 😌</h6>
+
+      <div class="mb-3">
+        <label class="form-label">🕰️ Hora estimada de llegada</label>
+        <select id="horaLlegada" class="form-select">
+          <option>Temprano</option>
+          <option>Normal (15 min tarde)</option>
+          <option>Tarde pero con estilo 😎</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">😴 Probabilidad de quedarse dormida</label>
+        <select id="probDormir" class="form-select">
+          <option>Imposible</option>
+          <option>Baja</option>
+          <option>Media</option>
+          <option>Alta</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">🍿 Nivel de atención a la película</label>
+        <input type="range" id="atencionPeli" class="form-range" min="0" max="100">
+        <div class="d-flex justify-content-between small">
+          <span>¿Había una peli?</span>
+          <span>Puede haber interrupciones</span>
+          <span>Shhh, no hables</span>
+        </div>
+      </div>
+
+      <hr class="border-light">
+
+      <div class="mb-3">
+        <label class="form-label">💬 Mensaje para el anfitrión</label>
+        <textarea id="mensaje" class="form-control" rows="2"
+                  placeholder="Deje acá su mensaje"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">📱 Uso del celular</label>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="celSilencio" checked>
+          <label class="form-check-label">Silencio activado</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="celFotos">
+          <label class="form-check-label">Fotos solo si está permitido 📸</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="celTiktok">
+          <label class="form-check-label">TikTok permitido (para cumplir con la racha)</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">🔮 ¿Cómo imaginás que termina la noche?</label>
+        <select id="finalNoche" class="form-select">
+          <option>Vemos la Película completa</option>
+          <option>Dormidos</option>
+          <option>Charla larga</option>
+          <option>Quien sabe como termina 😏</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">🧠 Si la peli no gusta:</label>
+        <select id="reaccion" class="form-select">
+          <option>Te pediré cambiarla por una mejor</option>
+          <option>Busco una excusa para no verla 😏</option>
+          <option>Fingimos demencia y seguimos viendo</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="legalSommier" required>
+          <label class="form-check-label">
+            Acepto que el sommier será EVALUDO y PUNTUADO
+          </label>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg">
+          Confirmar asistencia 💌
+        </button>
+      </div>
+
+    </form>
+
+    <!-- FINAL -->
+    <div id="final" class="hidden mt-4 text-center">
+      <h4>Excelente decisión 😎</h4>
+      <p>
+        El sommier y yo agradecemos tu valentía 🛏️<br>
+        Próximamente recibirás instrucciones por privado 🕵️‍♂️
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+/* =========================
+   INIT EMAILJS
+========================= */
+emailjs.init('pT1jyJz6cw2MSPRRY');
+
+/* =========================
+   ELEMENTOS BASE
+========================= */
+const btnNo     = document.getElementById('btnNo');
+const btnSi     = document.getElementById('btnSi');
+const form      = document.getElementById('form');
+const buttons   = document.getElementById('buttons');
+const finalBox  = document.getElementById('final');
+
+const verPeli   = document.getElementById('verPeli');
+const peliNombreBox = document.getElementById('peliNombre');
+
+/* =========================
+   BOTÓN NO (HUYE)
+========================= */
+function moverNo() {
+  const card = document.querySelector('.card');
+
+  const maxX = card.offsetWidth  - btnNo.offsetWidth  - 20;
+  const maxY = card.offsetHeight - btnNo.offsetHeight - 20;
+
+  btnNo.style.position = 'absolute';
+  btnNo.style.left = Math.random() * maxX + 'px';
+  btnNo.style.top  = Math.random() * maxY + 'px';
+}
+
+btnNo.addEventListener('mouseenter', moverNo);
+btnNo.addEventListener('mousedown', moverNo);
+btnNo.addEventListener('touchstart', moverNo);
+
+/* =========================
+   BOTÓN SÍ
+========================= */
+btnSi.addEventListener('click', () => {
+  btnNo.style.display = 'none'; // 🔥 desaparece para siempre
+  buttons.classList.add('hidden');
+  form.classList.remove('hidden');
+});
+
+/* =========================
+   MOSTRAR INPUT PELI
+========================= */
+verPeli.addEventListener('change', () => {
+  peliNombreBox.classList.toggle('hidden', verPeli.value !== 'si');
+});
+
+/* =========================
+   ENVÍO FORMULARIO
+========================= */
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  /* =========================
+     LECTURAS COMPLETAS
+  ========================= */
+
+  const horaLlegada = document.getElementById('horaLlegada')?.value || '—';
+  const probDormir  = document.getElementById('probDormir')?.value || '—';
+
+  const atencionPeliEl = document.getElementById('atencionPeli');
+  const atencionPeli = atencionPeliEl
+    ? atencionPeliEl.value + '%'
+    : '—';
+
+  const usoCelular = [
+    document.getElementById('celSilencio')?.checked ? 'Silencio activado' : null,
+    document.getElementById('celFotos')?.checked ? 'Fotos permitidas' : null,
+    document.getElementById('celTiktok')?.checked ? 'TikTok permitido' : null
+  ].filter(Boolean).join(', ') || 'No especificado';
+
+  /* =========================
+     DATA PARA EMAILJS
+  ========================= */
+  const data = {
+    fecha: document.getElementById('fecha')?.value || '—',
+    ver_peli: verPeli.value === 'si' ? 'Sí' : 'No',
+    nombre_peli: document.getElementById('nombrePeli')?.value || 'No indicó',
+    bebida: document.getElementById('bebida')?.value || '—',
+    nivel_sommier: document.getElementById('nivelSommier')?.value || '—',
+
+    hora_llegada: horaLlegada,
+    atencion_peli: atencionPeli,
+    dormirse: probDormir,
+    celular: usoCelular,
+
+    final_noche: document.getElementById('finalNoche')?.value || '—',
+    reaccion: document.getElementById('reaccion')?.value || '—',
+    mensaje: document.getElementById('mensaje')?.value || '—',
+
+    legal_sommier: document.getElementById('legalSommier')?.checked
+      ? 'Aceptado'
+      : 'No aceptado'
+  };
+
+  /* =========================
+     EMAILJS
+  ========================= */
+  emailjs
+    .send('service_qq1zazd', 'template_ha75wd8', data)
+    .then(() => {
+  document.getElementById('intro')?.classList.add('hidden');
+  form.classList.add('hidden');
+  finalBox.classList.remove('hidden');
+})
+    .catch(err => {
+      alert('Error al enviar 😢');
+      console.error(err);
+    });
+});
+</script>
+
+
+</body>
+</html>
+
